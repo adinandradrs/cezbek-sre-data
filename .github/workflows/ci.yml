@@ -9,16 +9,18 @@ on:
       - master
       - development
 jobs:
-  test:
+  migration:
+    name: Data Migration w/ Flyway
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Migration Script
+      - name: Checkout Script
         uses: actions/checkout@v2
-      - name: Setup Flyway
+      - name: Execute Script
         uses: joshuaavalon/flyway-action@v3.0.0
         if: github.ref == 'refs/heads/development'
         with:
           url: jdbc:postgresql://${{ secrets.CEZBEKDB_APP_HOST }}:${{ secrets.CEZBEKDB_APP_PORT }}/${{ secrets.CEZBEKDB_APP_SCHEMA }}
           user: ${{ secrets.CEZBEKDB_APP_USER }}
           password: ${{ secrets.CEZBEKDB_APP_PASSWD }}
-      - run: echo 'migrate cezbek-app....'
+          locations: filesystem:./migration/sql
+      - run: echo 'migrate cezbek-app schema....'
