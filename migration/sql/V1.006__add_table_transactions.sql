@@ -19,7 +19,7 @@ create table IF NOT EXISTS transactions
 	kezbek_ref_no varchar(20),
 	reward decimal(19,2),
 	cashback_percentage decimal(2,2),
-	h2h_provider bigint not null,
+	h2h_provider_id bigint not null,
 	h2h_provider varchar not null,
 	h2h_fee decimal(19,2) not null,
 	is_deleted   bool,
