@@ -26,5 +26,5 @@ jobs:
         with:
           url: jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_SCHEMA
           user: $DB_USER
-          password: $DB_PASSWD
-      - run: echo 'testing'
+          password: "c3zb3k4pP!.18a"
+      - run: echo 'migrate cezbek-app....'
