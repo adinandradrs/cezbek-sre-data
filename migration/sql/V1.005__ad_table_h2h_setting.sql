@@ -1,3 +1,6 @@
+drop sequence h2h_providers_fees_seq;
+create sequence h2h_provider_fees_seq;
+
 create table h2h_providers
 (
     id           bigint default nextval('h2h_providers_seq'::regclass)
