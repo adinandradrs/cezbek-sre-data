@@ -14,7 +14,7 @@ create table IF NOT EXISTS transactions
 	used_cashback decimal(19,2),
 	is_cashback_applied bool,
 	qty int not null,
-	amount decimal(1,2) not null,
+	amount decimal(19,2) not null,
 	partner_ref_code varchar(25) not null,
 	kezbek_ref_no varchar(20),
 	reward decimal(19,2),
