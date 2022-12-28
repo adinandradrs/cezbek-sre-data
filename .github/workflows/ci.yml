@@ -23,4 +23,10 @@ jobs:
           user: ${{ secrets.CEZBEKDB_APP_USER }}
           password: ${{ secrets.CEZBEKDB_APP_PASSWD }}
           locations: filesystem:./migration/sql
+        if: github.ref == 'refs/heads/master'
+        with:
+          url: jdbc:postgresql://${{ secrets.CEZBEKDB_APP_HOST_PROD }}:${{ secrets.CEZBEKDB_APP_PORT_PROD }}/${{ secrets.CEZBEKDB_APP_SCHEMA_PROD }}
+          user: ${{ secrets.CEZBEKDB_APP_USER_PROD }}
+          password: ${{ secrets.CEZBEKDB_APP_PASSWD_PROD }}
+          locations: filesystem:./migration/sql
       - run: echo 'migrate cezbek-app schema....'
