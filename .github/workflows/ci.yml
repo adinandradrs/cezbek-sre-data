@@ -31,4 +31,3 @@ jobs:
           user: ${{ secrets.CEZBEKDB_APP_USER_PROD }}
           password: ${{ secrets.CEZBEKDB_APP_PASSWD_PROD }}
           locations: filesystem:./migration/sql
-      - run: echo 'migrate cezbek-app schema....'
