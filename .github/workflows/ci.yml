@@ -17,14 +17,8 @@ jobs:
       - name: Setup Flyway
         uses: joshuaavalon/flyway-action@v3.0.0
         if: github.ref == 'refs/heads/development'
-        env:
-          DB_USER: ${{ secrets.CEZBEKDB_APP_USER }}
-          DB_PASSWD: ${{ secrets.CEZBEKDB_APP_PASSWD }}
-          DB_PORT: ${{ secrets.CEZBEKDB_APP_PORT }}
-          DB_HOST: ${{ secrets.CEZBEKDB_APP_HOST }}
-          DB_SCHEMA: ${{ secrets.CEZBEKDB_APP_SCHEMA }}
         with:
-          url: jdbc:postgresql://$DB_HOST:$DB_PORT/$DB_SCHEMA
-          user: $DB_USER
-          password: "c3zb3k4pP!.18a"
+          url: jdbc:postgresql://${{ secrets.CEZBEKDB_APP_HOST }}:${{ secrets.CEZBEKDB_APP_PORT }}/${{ secrets.CEZBEKDB_APP_SCHEMA }}
+          user: ${{ secrets.CEZBEKDB_APP_USER }}
+          password: ${{ secrets.CEZBEKDB_APP_PASSWD }}
       - run: echo 'migrate cezbek-app....'
