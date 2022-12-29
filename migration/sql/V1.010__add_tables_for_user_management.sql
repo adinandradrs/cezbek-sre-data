@@ -15,7 +15,7 @@ create table IF NOT EXISTS users
     created_date timestamp,
     updated_by   bigint,
     updated_date timestamp
-)
+);
 
 create table IF NOT EXISTS roles 
 (
@@ -30,7 +30,7 @@ create table IF NOT EXISTS roles
     created_date timestamp,
     updated_by   bigint,
     updated_date timestamp
-)
+);
 
 create table IF NOT EXISTS permissions 
 (
@@ -40,16 +40,16 @@ create table IF NOT EXISTS permissions
 	permission_name varchar(150) not null,
 	permission_path varchar(350) not null,
 	method varchar(10) not null
-)
+);
 
 create table IF NOT EXISTS role_permissions 
 (
 	role_id bigint,
 	permission_id bigint
-)
+);
 
 create table IF NOT EXISTS user_role 
 (
 	role_id bigint,
 	user_id bigint
-)
+);
